@@ -74,7 +74,7 @@ public class Dish {
 return name.compareTo(dish.name);
     }
 
-    public void add(TreeSet<SideDish> sideDishesMap) {
+    public void add(Dish sideDishesMap) {
     }
 }
 

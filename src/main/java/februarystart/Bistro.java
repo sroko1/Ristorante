@@ -2,36 +2,33 @@ package februarystart;
 
 import java.util.*;
 
-public class Bistro implements Iterator {
+public class Bistro implements Iterator{
 
     private String classname;
-    private TreeSet<Dish> dishesMap;
-    private TreeSet<Order> ordersMap;                    /// new TreeSet<>(getOrders());
-    private TreeSet<Waiter> waitersMap;
-    private TreeSet<SideDish> sideDishesMap;
+    private Set<Dish> dishSet;
+    private Set<Order> orderSet;                    /// new TreeSet<>(getOrders());
+    private Set<Waiter> waiterSet;
+    private Set<SideDish> sideDishSet;
 
     private static Bistro instance;
     private Dish dish;
 
 
-    public Bistro(TreeSet<Dish> dishesMap, TreeSet<Order> ordersMap, TreeSet<Waiter> waitersMap, TreeSet<SideDish> sideDishesMap) {
-        this.dishesMap = dishesMap;
-        this.ordersMap = ordersMap;
-        this.waitersMap = waitersMap;
-        this.sideDishesMap = sideDishesMap;
-    }
+    //public Bistro(TreeSet<Dish> dishesMap, TreeSet<Order> ordersMap, TreeSet<Waiter> waitersMap, TreeSet<SideDish> sideDishesMap) {
+      //  this.dishesMap = dishesMap;
+      //  this.ordersMap = ordersMap;
+       // this.waitersMap = waitersMap;
+       // this.sideDishesMap = sideDishesMap;
+   // }
 
     private Bistro(String classname) {
         this.classname = classname;
-        dishesMap = new TreeSet<Dish>();
-        ordersMap = new TreeSet<Order>();
-        waitersMap = new TreeSet<Waiter>();
-        sideDishesMap = new TreeSet<SideDish>();
-
+        dishSet = new TreeSet<Dish>();
+        orderSet = new TreeSet<Order>();
+        waiterSet = new TreeSet<>();
+      // sideDishSet = new TreeSet<>();
 
     }
-
-
 
     public static Bistro getInstance(String classname) {
         if (instance == null)
@@ -39,28 +36,33 @@ public class Bistro implements Iterator {
         return instance;
     }
 
-
-
-
-
-
-
-    public void addDish(Dish dishesMap) {
-        dishesMap.add(sideDishesMap);
+    public void addDish(Dish dish) {
+        dishSet.add(dish);
+    }
+    public TreeSet<Dish>getAllDishes(){
+        return (TreeSet<Dish>) dishSet;
     }
 
-    public void addOrder(Order ordersMap) {
-        ordersMap.add(ordersMap);
+
+    public void addOrder(Order order) {
+        orderSet.add(order);
+    }
+    public TreeSet<Order>getAllOrders(){
+        return (TreeSet<Order>) orderSet;
     }
 
     public void addWaiter(Waiter waiter) {
-        waitersMap.add(waiter);
-
+        waiterSet.add(waiter);
     }
+    public TreeSet<Waiter>getAllWaiters(){
+        return (TreeSet<Waiter>) waiterSet;
+    }
+
+
 
     public void decorateDish(Dish dish, SideDish sideDish) {
         this.dish = dish;
-        dishesMap.add(new Dish(sideDish));
+        dishSet.add(new Dish(sideDish));
     }
 
     @Override
@@ -81,7 +83,7 @@ public class Bistro implements Iterator {
 
     public Iterator getIterator() {
 
-        iterator = ordersMap.iterator();
+        iterator = orderSet.iterator();
 
         while (iterator.hasNext()) {
             return iterator;
@@ -90,5 +92,8 @@ public class Bistro implements Iterator {
 
         return null;
     }
+
+
+
 }
 

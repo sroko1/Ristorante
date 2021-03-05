@@ -47,6 +47,5 @@ private LocalDateTime orderDateTime;
                 '}';
     }
 
-    public void add(Order ordersMap) {
-    }
+
 }

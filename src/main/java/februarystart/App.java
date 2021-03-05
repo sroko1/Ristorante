@@ -66,12 +66,17 @@ public class App {
         Order order4 = new Order(d1,client2,wa2,LocalDateTime.of(2021,9,2,15,15));
         Order order5 = new Order(d2,client1,wa1,LocalDateTime.of(2021,2,26,12,15));
 
+        //extra
+        //Order order6 = new Order(d2,client1,wa1,LocalDateTime.of(2021,2,26,12,15));
+
 
         bistro.addOrder(order1);
         bistro.addOrder(order2);
         bistro.addOrder(order3);
         bistro.addOrder(order4);
         bistro.addOrder(order5);
+
+
 
         bistro.addWaiter(wa1);
         bistro.addWaiter(wa2);
@@ -99,7 +104,10 @@ public class App {
         System.out.println(sideDish2);
         System.out.println(client1);
         System.out.println();
-        bistro.getIterator();
+        System.out.println(order4);
+        System.out.println(bistro.getAllOrders());
+
+
         System.out.println(bistro.getIterator());
 
 
