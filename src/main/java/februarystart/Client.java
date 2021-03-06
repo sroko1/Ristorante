@@ -30,4 +30,9 @@ public class Client extends Person{
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.firstName.compareTo(getFirstName());
+    }
 }

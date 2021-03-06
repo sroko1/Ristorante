@@ -70,6 +70,7 @@ public class App {
         //Order order6 = new Order(d2,client1,wa1,LocalDateTime.of(2021,2,26,12,15));
 
 
+
         bistro.addOrder(order1);
         bistro.addOrder(order2);
         bistro.addOrder(order3);
@@ -106,9 +107,10 @@ public class App {
         System.out.println();
         System.out.println(order4);
         System.out.println(bistro.getAllOrders());
+        System.out.println();
 
 
-        System.out.println(bistro.getIterator());
+        System.out.println(bistro.getOrdersIterator());
 
 
 

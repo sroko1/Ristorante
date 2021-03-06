@@ -3,7 +3,7 @@ package februarystart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SideDish {
+public class SideDish implements Comparable {
 
     private String name;
     private int weight;
@@ -20,16 +20,6 @@ public class SideDish {
     }
     public SideDish(){
 
-    }
-
-    @Override
-    public String toString() {
-        return "SideDish{" +
-                "name='" + name + '\'' +
-                ", weight=" + weight +
-                ", calories=" + calories +
-                ", price=" + price +
-                '}';
     }
 
     public String getName() {
@@ -50,5 +40,21 @@ public class SideDish {
 
     public List<Ingredient> getSideIngredients() {
         return sideIngredients;
+    }
+
+    @Override
+    public String toString() {
+        return "SideDish{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", calories=" + calories +
+                ", price=" + price +
+                ", sideIngredients=" + sideIngredients +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return name.compareTo(getName());
     }
 }

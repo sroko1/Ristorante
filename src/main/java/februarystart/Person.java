@@ -1,6 +1,6 @@
 package februarystart;
 
-public abstract class Person {
+public abstract class Person implements Comparable{
 
     private  String firstName;
     private  String lastName;

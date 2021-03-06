@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
-public class Dish {
+public class Dish implements Comparable {
 
 
     private Object sideDish = new Object();
@@ -74,7 +74,11 @@ public class Dish {
 return name.compareTo(dish.name);
     }
 
-    public void add(Dish sideDishesMap) {
+
+
+    @Override
+    public int compareTo(Object o) {
+        return  0;
     }
 }
 

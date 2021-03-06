@@ -1,6 +1,6 @@
 package februarystart;
 
-public class Waiter extends Person{
+public class Waiter extends Person {
 
    private static double totalRevenue;
 
@@ -8,9 +8,8 @@ public class Waiter extends Person{
         super(firstName, lastName);
     }
 
-    protected Waiter() {
-        super();
-    }
+
+
 
     @Override
     public String getFirstName() {
@@ -33,5 +32,11 @@ public class Waiter extends Person{
 
     public void add(Waiter waiterMap) {
 
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        return super.getLastName().compareTo(getLastName());
     }
 }

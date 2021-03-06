@@ -2,16 +2,12 @@ package februarystart;
 
 import java.time.LocalDateTime;
 
-public class Order {
+public class Order implements Comparable {
 
-private Dish dish;
-private Client client;
-private Waiter waiter;
-private LocalDateTime orderDateTime;
-
-
-
-
+    private Dish dish;
+    private Client client;
+    private Waiter waiter;
+    private LocalDateTime orderDateTime;
 
 
     public Order(Dish dish, Client client, Waiter waiter, LocalDateTime orderDateTime) {
@@ -48,4 +44,12 @@ private LocalDateTime orderDateTime;
     }
 
 
+
+
+
+
+
+    public int compareTo(Object o) {
+        return this.orderDateTime.compareTo(getOrderDateTime());
+    }
 }
