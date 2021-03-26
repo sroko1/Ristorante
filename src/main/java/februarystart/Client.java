@@ -1,11 +1,12 @@
 package februarystart;
 
-public class Client extends Person{
+public class Client extends Person {
 
     protected String firstName;
     protected String lastName;
+    IBonus bonus;
 
-    public Client(String firstName,String lastName) {
+    public Client(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
 
@@ -30,6 +31,7 @@ public class Client extends Person{
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
 
     @Override
     public int compareTo(Object o) {

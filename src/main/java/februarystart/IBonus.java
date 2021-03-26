@@ -1,2 +1,5 @@
-package februarystart;public interface IBonus {
+package februarystart;
+
+public interface IBonus {
+    double discount();
 }

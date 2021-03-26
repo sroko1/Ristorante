@@ -2,9 +2,8 @@ package februarystart;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
-public class Dish implements Comparable {
+public class Dish extends DishNameComparator {
 
 
     private Object sideDish = new Object();
@@ -15,9 +14,7 @@ public class Dish implements Comparable {
     private List<Ingredient> ingredients = new ArrayList<>();
     private List<SideDish>sideIngredients = new ArrayList<>();
 
-    public Dish(String name){
-        this.name= name;
-    }
+
 
     public Dish(String name, double price, Category category, List<Ingredient> ingredients,List<SideDish>sideIngredients) {
         this.name = name;
@@ -25,6 +22,12 @@ public class Dish implements Comparable {
         this.category = category;
         this.ingredients = ingredients;
         this.sideIngredients = sideIngredients;
+    }
+    public Dish(String name, double price, Category category, List<Ingredient> ingredients) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.ingredients = ingredients;
     }
 
     public Dish(String name, double price, Category category) {
@@ -70,17 +73,11 @@ public class Dish implements Comparable {
     }
 
 
-    public int compareTo(Dish dish) {
-return name.compareTo(dish.name);
-    }
-
-
-
-    @Override
-    public int compareTo(Object o) {
-        return  0;
+    public int compareTo(String name) {
+        return this.name.compareTo(name);
     }
 }
+
 
 
 
