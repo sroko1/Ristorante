@@ -31,10 +31,11 @@ public class App {
         Dish d1 = new Dish("BigPorky", 220.1, Category.MEAT, List.of(ing1, ing3), null);
         Dish d2 = new Dish("OakHawk", 130.9, Category.FLOURDISH);
         Dish d3 = new Dish("BearHope", 460.4, Category.FISH, null, List.of(sideDish1));
-        Dish d4 = new Dish("HuntPlant", 200.0, Category.VEGE,List.of(ing3,ing6));
+        Dish d4 = new Dish("HuntPlant", 200.0, Category.VEGE,List.of(ing3,ing6),null);
         Dish d5 = new Dish("Chips", 45.5, Category.OTHERS);
         Dish d6 = new Dish("FlyHigh", 250.2, Category.SOUP);
         Dish d7 = new Dish("AssShake", 167.2, Category.MILKDISH);
+        Dish d8 = new Dish("SaltySugar",312.9,Category.OTHERS,List.of(ing2, ing8),List.of(sideDish3));
 
 
         Waiter wa1 = new Waiter("John", "Dogg");
@@ -85,36 +86,38 @@ public class App {
         bistro.addDish(d5);
         bistro.addDish(d6);
         bistro.addDish(d7);
+        bistro.addDish(d7);
+        bistro.addDish(d8);
 
-       // bistro.decorateDish(d1,sideDish1);
-       // bistro.decorateDish(d2,sideDish2);
-       // bistro.decorateDish(d3,sideDish3);
+        bistro.decorateDish(d1,sideDish1);
+        bistro.decorateDish(d2,sideDish2);
+        bistro.decorateDish(d3,sideDish3);
 
 
 
 
 
-       /* System.out.println(d1);
-        System.out.println(d2);
-        System.out.println(d4);
+        System.out.println(d1);
+       // System.out.println(d2);
+      //  System.out.println(d4);
         System.out.println(sideDish2);
-        System.out.println(client1);
-        System.out.println();
-        System.out.println(order4);
-        System.out.println(" - ");
+      //  System.out.println(client1);
+      //  System.out.println();
+      //  System.out.println(order4);
+       // System.out.println(" - ");
 
 
-        System.out.println( "ORDERLIST :" + bistro.getAllOrders());
-        System.out.println(" - ");
-        System.out.println();
-*/
-        System.out.println(bistro.getAllDishes());
+      //  System.out.println( "ORDERLIST :" + bistro.getAllOrders());
+       // System.out.println(" - ");
+      //  System.out.println();
+
+       // System.out.println(bistro.getAllDishes());
        // System.out.println();
        // System.out.println(bistro.getAllWaiters());
-        //.out.println();
+
        // System.out.println(bistro.getAllSideDishes());
 
-       System.out.println(bistro.getOrdersIterator());
+       //System.out.println(bistro.getOrdersIterator());
 
 
 

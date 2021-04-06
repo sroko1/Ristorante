@@ -3,9 +3,9 @@ package februarystart;
 public class Ingredient {
 
 
-    private String name;
-    private int weight;
-    private int calories;
+    private final String name;
+    private final int weight;
+    private final int calories;
 
     public Ingredient(String name, int weight, int calories) {
         this.name = name;

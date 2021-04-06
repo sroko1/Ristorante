@@ -2,7 +2,7 @@ package februarystart;
 
 public class BistroException extends Exception{
 
-    private  String message;
+    private final String message;
 
     public BistroException(String message) {
 

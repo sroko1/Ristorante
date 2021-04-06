@@ -5,10 +5,10 @@ import java.util.Objects;
 
 public class Order implements Comparable {
 
-    private Dish dish;
-    private Client client;
-    private Waiter waiter;
-    private LocalDateTime orderDateTime;
+    private final Dish dish;
+    private final Client client;
+    private final Waiter waiter;
+    private final LocalDateTime orderDateTime;
 
 
     public Order(Dish dish, Client client, Waiter waiter, LocalDateTime orderDateTime) {

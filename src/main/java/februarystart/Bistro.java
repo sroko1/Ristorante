@@ -1,5 +1,6 @@
 package februarystart;
 
+import java.io.*;
 import java.util.*;
 
 public class Bistro extends OrderNameComparator {
@@ -14,20 +15,42 @@ public class Bistro extends OrderNameComparator {
     private static Bistro instance;
     private Dish dish;
 
+    String filePath = "C:\\Users\\Marcin\\IdeaProjects\\AnotherMonday\\BistroSettings.txt";
+    final int weightLimit = 250;
+    FileWriter fileWriter = null;
 
-    /* public Bistro(TreeSet<Dish> dishSet, TreeSet<Order> orderSet, TreeSet<Waiter> waiterSet, TreeSet<SideDish> sideDishSet) {
-         this.dishSet = dishSet;
-         this.orderSet = orderSet;
-         this.waiterSet = waiterSet;
-         this.sideDishSet = sideDishSet;
-     }
- */
+
+    {
+        try {
+            fileWriter = new FileWriter(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileWriter.write(Integer.toString(weightLimit));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    {
+        if (fileWriter != null) {
+            try {
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
     private Bistro(String classname) {
         this.classname = classname;
         dishSet = new TreeSet<Dish>(new DishNameComparator());
         orderSet = new TreeSet<Order>(new OrderNameComparator());
         waiterSet = new TreeSet<Waiter>(new WaiterNameComparator());
-        sideDishSet = new TreeSet<>();
+        sideDishSet = new TreeSet<SideDish>(new SideDishComparator());
 
     }
 
@@ -37,18 +60,30 @@ public class Bistro extends OrderNameComparator {
         return instance;
     }
 
+
     public void addDish(Dish dish) throws BistroException {
-        while (dish.getCategory().equals(Category.VEGE)) {
-            if (dish.getIngredients().toString().contains("Chicken") ||
-                    dish.getIngredients().toString().contains("Turkey") ||
-                    dish.getIngredients().toString().contains("Pork")
-            )
-                throw new BistroException("This is not vege");
+        while (dish.getCategory().equals(Category.VEGE))
+        {
+            while (dish.getCategory().equals(Category.SOUP))
+            {
+                if (dish.sumOfWeightExtras() > weightLimit)
+                {
+                    throw new BistroException("To much, Keep eye on your stomach");
+                }
+                  else if (dish.hasSideIngredient()) {
+                      throw new BistroException("Sorry, we are not prepare for crazy mix");
+                  }
+
+                else if (dish.hasIngredient("Chicken") ||
+                        dish.hasIngredient("Turkey") || dish.hasIngredient("Pork")) {
+                    throw new BistroException("This is not vege");
+                }
+
+                    }
+                }
+
+            dishSet.add(dish);
         }
-
-          dishSet.add(dish);
-    }
-
 
 
     public void addSideDish(SideDish sideDish) {
@@ -103,6 +138,7 @@ public class Bistro extends OrderNameComparator {
 
 
     Iterator iterator;
+
     public Order getOrdersIterator() {
         iterator = orderSet.iterator();
         if (iterator.hasNext()) {
@@ -112,7 +148,7 @@ public class Bistro extends OrderNameComparator {
     }
 
 
-    }
+}
 
 
 

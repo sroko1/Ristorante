@@ -2,15 +2,16 @@ package februarystart;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class SideDish implements Comparable {
+public class SideDish extends SideDishComparator {
 
     private String name;
     private int weight;
     private int calories;
     private double price;
 
-    private List<Ingredient>sideIngredients = new ArrayList<>();
+    private final List<Dish>sideIngredients = new ArrayList<>();
 
     public SideDish(String name, int weight, int calories, double price) {
         this.name = name;
@@ -38,9 +39,12 @@ public class SideDish implements Comparable {
         return price;
     }
 
-    public List<Ingredient> getSideIngredients() {
+    public List<Dish> getSideIngredients() {
         return sideIngredients;
     }
+
+
+
 
     @Override
     public String toString() {
@@ -53,8 +57,8 @@ public class SideDish implements Comparable {
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return name.compareTo(getName());
+
+    public int compareTo(String name) {
+        return this.name.compareTo( name);
     }
 }
