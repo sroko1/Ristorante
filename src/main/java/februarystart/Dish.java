@@ -11,10 +11,10 @@ public class Dish extends DishNameComparator {
     private Category category;
 
     private List<Ingredient> ingredients = new ArrayList<>();
-    private List<SideDish> sideIngredients = new ArrayList<>();
+    private List<SideIngredient> sideIngredients = new ArrayList<>();
 
 
-    public Dish(String name, double price, Category category, List<Ingredient> ingredients, List<SideDish> sideIngredients) {
+    public Dish(String name, double price, Category category, List<Ingredient> ingredients, List<SideIngredient> sideIngredients) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -56,7 +56,7 @@ public class Dish extends DishNameComparator {
         return ingredients;
     }
 
-    public List<SideDish> getSideIngredients() {
+    public List<SideIngredient> getSideIngredients() {
         return sideIngredients;
     }
 
@@ -69,11 +69,11 @@ public class Dish extends DishNameComparator {
         return false;
     }
 
-    private final Map<Dish, List<SideDish>> sideDishes = new HashMap<>();
 
-    public boolean hasSideIngredient() {
-        for (List<SideDish> sideDish : sideDishes.values()){
-            if (sideDish.contains(sideIngredients)) return true;
+    public boolean hasSideIngredient(Dish dish) {
+        for (SideIngredient  sideIngredient: sideIngredients){
+            if (dish.getSideIngredients().contains(sideIngredient))
+                return true;
     }
         return false;
 }
@@ -83,7 +83,7 @@ public class Dish extends DishNameComparator {
         int weight = 0;
 
         for (Ingredient ingredient : ingredients) return weight += ingredient.getWeight();
-        for (SideDish sideIngredient : sideIngredients) {
+        for (SideIngredient sideIngredient : sideIngredients) {
             return weight += sideIngredient.getWeight();
 
         }

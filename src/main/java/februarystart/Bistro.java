@@ -17,33 +17,15 @@ public class Bistro extends OrderNameComparator {
 
     String filePath = "C:\\Users\\Marcin\\IdeaProjects\\AnotherMonday\\BistroSettings.txt";
     final int weightLimit = 250;
-    FileWriter fileWriter = null;
-
+    //FileWriter fileWriter = null;
 
     {
-        try {
-            fileWriter = new FileWriter(filePath);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
+        try (FileWriter fileWriter = new FileWriter(filePath)) {
             fileWriter.write(Integer.toString(weightLimit));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    {
-        if (fileWriter != null) {
-            try {
-                fileWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-
 
     private Bistro(String classname) {
         this.classname = classname;
@@ -62,28 +44,25 @@ public class Bistro extends OrderNameComparator {
 
 
     public void addDish(Dish dish) throws BistroException {
-        while (dish.getCategory().equals(Category.VEGE))
-        {
-            while (dish.getCategory().equals(Category.SOUP))
-            {
-                if (dish.sumOfWeightExtras() > weightLimit)
-                {
+        while (dish.getCategory().equals(Category.VEGE)) {
+            if (dish.hasIngredient("Chicken") ||
+                    dish.hasIngredient("Turkey") || dish.hasIngredient("Pork")) {
+                throw new BistroException("This is not vege");
+            }
+            while (dish.getCategory().equals(Category.SOUP)) {
+
+                if (dish.hasSideIngredient(dish)) {
+                    throw new BistroException("Sorry, we are not prepare for crazy mix");
+                }
+
+                if (dish.sumOfWeightExtras() > weightLimit) {
                     throw new BistroException("To much, Keep eye on your stomach");
                 }
-                  else if (dish.hasSideIngredient()) {
-                      throw new BistroException("Sorry, we are not prepare for crazy mix");
-                  }
-
-                else if (dish.hasIngredient("Chicken") ||
-                        dish.hasIngredient("Turkey") || dish.hasIngredient("Pork")) {
-                    throw new BistroException("This is not vege");
-                }
-
-                    }
-                }
-
-            dishSet.add(dish);
+            }
         }
+        dishSet.add(dish);
+
+    }
 
 
     public void addSideDish(SideDish sideDish) {

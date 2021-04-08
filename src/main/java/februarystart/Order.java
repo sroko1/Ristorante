@@ -3,7 +3,7 @@ package februarystart;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Order implements Comparable {
+public class Order extends OrderNameComparator {
 
     private final Dish dish;
     private final Client client;
@@ -57,8 +57,8 @@ public class Order implements Comparable {
         return Objects.hash(dish, client, waiter, orderDateTime);
     }
 
-    @Override
-    public int compareTo(Object o) {
-        return this.orderDateTime.compareTo(((Order)o).getOrderDateTime());
-    }
+   // @Override
+   // public int compareTo(Object o) {
+   //     return this.orderDateTime.compareTo(((Order)o).getOrderDateTime());
+  //  }
     }
