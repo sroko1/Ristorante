@@ -82,6 +82,7 @@ public class Dish extends DishNameComparator {
     public int sumOfWeightExtras() {
         int weight = 0;
 
+
         for (Ingredient ingredient : ingredients) return weight += ingredient.getWeight();
         for (SideIngredient sideIngredient : sideIngredients) {
             return weight += sideIngredient.getWeight();

@@ -1,6 +1,6 @@
 package februarystart;
 
-public class Ingredient {
+public class Ingredient  {
 
 
     private final String name;
@@ -9,7 +9,7 @@ public class Ingredient {
 
     public Ingredient(String name, int weight, int calories) {
         this.name = name;
-        this.weight = weight;
+        this.weight = weight ;
         this.calories = calories;
     }
 

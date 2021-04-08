@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Bistro extends OrderNameComparator {
 
-    private String classname;
+    private final String classname;
     private final Set<Dish> dishSet;
     private final Set<Order> orderSet;                    /// new TreeSet<>(getOrders());
     private final Set<Waiter> waiterSet;
@@ -49,20 +49,20 @@ public class Bistro extends OrderNameComparator {
                     dish.hasIngredient("Turkey") || dish.hasIngredient("Pork")) {
                 throw new BistroException("This is not vege");
             }
-            while (dish.getCategory().equals(Category.SOUP)) {
+        }
+        while (dish.getCategory().equals(Category.SOUP)) {
 
-                if (dish.hasSideIngredient(dish)) {
-                    throw new BistroException("Sorry, we are not prepare for crazy mix");
-                }
-
-                if (dish.sumOfWeightExtras() > weightLimit) {
-                    throw new BistroException("To much, Keep eye on your stomach");
-                }
+            if (dish.hasSideIngredient(dish)) {
+                throw new BistroException("Sorry, we are not prepare for crazy mix");
             }
         }
-        dishSet.add(dish);
+            if (dish.sumOfWeightExtras() > weightLimit) {
+                throw new BistroException("To much, Keep eye on your stomach");
+            }
 
-    }
+        dishSet.add(dish);
+}
+
 
 
     public void addSideDish(SideDish sideDish) {
