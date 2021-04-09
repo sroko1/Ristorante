@@ -45,24 +45,31 @@ public class Bistro extends OrderNameComparator {
 
     public void addDish(Dish dish) throws BistroException {
         while (dish.getCategory().equals(Category.VEGE)) {
-            if (dish.hasIngredient("Chicken") ||
-                    dish.hasIngredient("Turkey") || dish.hasIngredient("Pork")) {
+            if (dish.hasIngredient("Chicken%") ||
+                    dish.hasIngredient("Turkey%") || dish.hasIngredient("Pork%"))
+               {
+
                 throw new BistroException("This is not vege");
-            }
+               }
         }
         while (dish.getCategory().equals(Category.SOUP)) {
 
-            if (dish.hasSideIngredient(dish)) {
+            if (dish.hasSideIngredient(dish))
+               {
                 throw new BistroException("Sorry, we are not prepare for crazy mix");
             }
         }
-            if (dish.sumOfWeightExtras() > weightLimit) {
+
+        while (!(dish.getCategory().equals((Category.SOUP))|| (dish.getCategory().equals(Category.VEGE)))) {
+
+            if (dish.sumOfWeightExtras() > weightLimit)
+            {
                 throw new BistroException("To much, Keep eye on your stomach");
             }
-
+        }
         dishSet.add(dish);
-}
 
+    }
 
 
     public void addSideDish(SideDish sideDish) {

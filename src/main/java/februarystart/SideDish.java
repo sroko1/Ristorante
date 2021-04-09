@@ -11,7 +11,7 @@ public class SideDish extends SideDishComparator {
     private int calories;
     private double price;
 
-    private final List<Dish>sideIngredients = new ArrayList<>();
+
 
     public SideDish(String name, int weight, int calories, double price) {
         this.name = name;
@@ -39,12 +39,6 @@ public class SideDish extends SideDishComparator {
         return price;
     }
 
-    public List<Dish> getSideIngredients() {
-        return sideIngredients;
-    }
-
-
-
 
     @Override
     public String toString() {
@@ -53,10 +47,8 @@ public class SideDish extends SideDishComparator {
                 ", weight=" + weight +
                 ", calories=" + calories +
                 ", price=" + price +
-                ", sideIngredients=" + sideIngredients +
                 '}';
     }
-
 
     public int compareTo(String name) {
         return this.name.compareTo( name);

@@ -8,7 +8,7 @@ import static februarystart.Bistro.getInstance;
 
 public class App {
 
-    public static void main(String[] args) throws BistroException {
+    public static void main(String[] args) throws BistroException{
 
         Bistro bistro = getInstance("U Bolka");
 
@@ -35,10 +35,10 @@ public class App {
         SideDish sideDish2 = new SideDish("CarrotsWithPeas", 78, 130, 67.8);
         SideDish sideDish3 = new SideDish("FrogTongue", 89, 214, 340);
 
-        Dish d1 = new Dish("BigPorky", 220.1, Category.MEAT, List.of(ing1, ing3), null);
+        Dish d1 = new Dish("BigPorky",  Category.MEAT,220.1, List.of(ing1, ing3));
         Dish d2 = new Dish("OakHawk", 130.9, Category.FLOURDISH);
-        Dish d3 = new Dish("BearHope", 460.4, Category.FISH, null, List.of(sideIngredient1,sideIngredient2));
-        Dish d4 = new Dish("HuntPlant", 200.0, Category.VEGE,List.of(ing3,ing6),null);
+        Dish d3 = new Dish("BearHope", 460.4, Category.FISH,  List.of(sideIngredient1,sideIngredient2));
+        Dish d4 = new Dish("HuntPlant",  Category.VEGE,200.0,List.of(ing3,ing6));
         Dish d5 = new Dish("Chips", 45.5, Category.OTHERS);
         Dish d6 = new Dish("FlyHigh", 250.2, Category.SOUP);
         Dish d7 = new Dish("AssShake", 167.2, Category.MILKDISH);
@@ -86,28 +86,30 @@ public class App {
         bistro.addWaiter(wa2);
         bistro.addWaiter(wa3);
 
-        bistro.addDish(d1);
-        bistro.addDish(d2);
-        bistro.addDish(d3);
-        bistro.addDish(d4);
+       // bistro.addDish(d1);
+       // bistro.addDish(d2);
+       // bistro.addDish(d3);
+       // bistro.addDish(d4);
         bistro.addDish(d5);
         bistro.addDish(d6);
         bistro.addDish(d7);
         bistro.addDish(d7);
         bistro.addDish(d8);
 
-        bistro.decorateDish(d1,sideDish1);
-        bistro.decorateDish(d2,sideDish2);
-        bistro.decorateDish(d3,sideDish3);
+      //  bistro.decorateDish(d1,sideDish1);
+       // bistro.decorateDish(d2,sideDish2);
+       // bistro.decorateDish(d3,sideDish3);
 
 
 
 
 
-       // System.out.println(d1);
-       // System.out.println(d2);
-        //System.out.println(d3);
-      //  System.out.println(sideDish2);
+        System.out.println(d1);
+        System.out.println(d2);
+        System.out.println(d3);
+        System.out.println(d4);
+        System.out.println(d5);
+        System.out.println(sideDish2);
         System.out.println(client1);
       //  System.out.println();
       //  System.out.println(order4);

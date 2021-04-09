@@ -22,11 +22,17 @@ public class Dish extends DishNameComparator {
         this.sideIngredients = sideIngredients;
     }
 
-    public Dish(String name, double price, Category category, List<Ingredient> ingredients) {
+    public Dish(String name,  Category category,double price, List<Ingredient> ingredients) {
         this.name = name;
         this.price = price;
         this.category = category;
         this.ingredients = ingredients;
+    }
+    public Dish(String name, double price, Category category, List<SideIngredient> sideIngredients) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.sideIngredients = sideIngredients;
     }
 
     public Dish(String name, double price, Category category) {
@@ -71,31 +77,36 @@ public class Dish extends DishNameComparator {
 
 
     public boolean hasSideIngredient(Dish dish) {
-        for (SideIngredient  sideIngredient: sideIngredients){
-            if (dish.getSideIngredients().contains(sideIngredient))
+        for (SideIngredient  sideIngredient: sideIngredients) {
+            if (dish.getSideIngredients().contains(sideIngredient)) {
                 return true;
-    }
+            }
+        }
         return false;
 }
 
 
     public int sumOfWeightExtras() {
-        int weight = 0;
+        int weightIng = 0;
+        int weightSid = 0;
 
-
-        for (Ingredient ingredient : ingredients) return weight += ingredient.getWeight();
+        for (Ingredient ingredient : ingredients) {
+            weightIng += ingredient.getWeight();
+        }
         for (SideIngredient sideIngredient : sideIngredients) {
-            return weight += sideIngredient.getWeight();
+
+            weightSid += sideIngredient.getWeight();
 
         }
-        return weight;
-    }
 
+        return weightIng + weightSid;
+    }
 
     @Override
     public String toString() {
         return "Dish{" +
-                "name='" + name + '\'' +
+                "sideDish=" + sideDish +
+                ", name='" + name + '\'' +
                 ", price=" + price +
                 ", category=" + category +
                 ", ingredients=" + ingredients +
